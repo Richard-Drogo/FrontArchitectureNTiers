@@ -17,11 +17,11 @@ app.use(bodyParser.urlencoded({extended: true})); // Parse requests of content-t
 
 //db.sequelize.sync(); // Production Mode
 
-/*
+
 db.sequelize.sync({ force: true }).then(() => {
-  console.log("Drop and re-sync db."); // <- Hint about what this do for development Mode.
+	console.log("Drop and re-sync db.");
 });
-*/
+
 
 app.get('/', (req, res) => {
   //res.send('Hello World!')
