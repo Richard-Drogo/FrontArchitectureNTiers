@@ -1,0 +1,15 @@
+<mat-toolbar>
+    <span>TSE Internships: Live map</span>
+</mat-toolbar>
+
+<section>
+    <div class="button-row">
+        <div class="flex-container">
+            <ng-container *ngFor="let navigationButton of navigationButtons">
+                <button mat-icon-button routerLink="{{ navigationButton.route }}" color="{{ navigationButton.color }}">
+                    <mat-icon>{{ navigationButton.icon }}</mat-icon>
+                </button>
+            </ng-container>
+        </div>
+    </div>
+</section>
