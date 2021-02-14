@@ -13,12 +13,15 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
+import { MatListModule } from '@angular/material/list'; 
+import { MatDividerModule } from '@angular/material/divider'; 
 
 import { HomeCardComponent } from './components/home/home-card/home-card.component'; 
 import { MapComponent } from './components/map/map.component';
 import { SearchMobilityComponent } from './components/search-mobility/search-mobility.component';
 import { AddMobilityComponent } from './components/add-mobility/add-mobility.component';
-import { NavigationBarComponent } from './components/navigation-bar/navigation-bar.component'; 
+import { NavigationBarComponent } from './components/navigation-bar/navigation-bar.component';
+import { MobilityListComponent } from './components/lists/mobility-list/mobility-list.component'; 
 
 @NgModule({
   declarations: [
@@ -28,7 +31,8 @@ import { NavigationBarComponent } from './components/navigation-bar/navigation-b
     MapComponent,
     SearchMobilityComponent,
     AddMobilityComponent,
-    NavigationBarComponent
+    NavigationBarComponent,
+    MobilityListComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +43,9 @@ import { NavigationBarComponent } from './components/navigation-bar/navigation-b
     MatTabsModule,
     MatIconModule,
     MatCardModule,
-    MatButtonModule
+    MatButtonModule,
+    MatListModule,
+    MatDividerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

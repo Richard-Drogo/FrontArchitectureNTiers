@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NavigationButton } from '../../interfaces/navigation-button';
+import { MobilityService } from 'src/app/services/mobility.service';
 
 /**
  * @title Page allowing the user to search a mobility with filters.
@@ -11,7 +11,9 @@ import { NavigationButton } from '../../interfaces/navigation-button';
 })
 export class SearchMobilityComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    public mobilityService: MobilityService
+  ) { }
 
   ngOnInit(): void {
   }
