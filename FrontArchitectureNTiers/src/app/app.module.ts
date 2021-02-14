@@ -6,15 +6,19 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { HttpClientModule } from '@angular/common/http';
+
 import { MatToolbarModule } from '@angular/material/toolbar'; 
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
-import { HomeCardComponent } from './components/home/home-card/home-card.component'; 
 import { MatButtonModule } from '@angular/material/button';
+
+import { HomeCardComponent } from './components/home/home-card/home-card.component'; 
 import { MapComponent } from './components/map/map.component';
 import { SearchMobilityComponent } from './components/search-mobility/search-mobility.component';
-import { ManageMobilityComponent } from './components/manage-mobility/manage-mobility.component'; 
+import { AddMobilityComponent } from './components/add-mobility/add-mobility.component';
+import { NavigationBarComponent } from './components/navigation-bar/navigation-bar.component'; 
 
 @NgModule({
   declarations: [
@@ -23,12 +27,14 @@ import { ManageMobilityComponent } from './components/manage-mobility/manage-mob
     HomeCardComponent,
     MapComponent,
     SearchMobilityComponent,
-    ManageMobilityComponent
+    AddMobilityComponent,
+    NavigationBarComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     MatToolbarModule,
     MatTabsModule,
     MatIconModule,

@@ -1,15 +1,5 @@
 <mat-toolbar>
-    <span>TSE Internships: Search mobilities</span>
+    <span>TSE Internships: Search mobility</span>
 </mat-toolbar>
 
-<section>
-    <div class="button-row">
-        <div class="flex-container">
-            <ng-container *ngFor="let navigationButton of navigationButtons">
-                <button mat-icon-button routerLink="{{ navigationButton.route }}" color="{{ navigationButton.color }}">
-                    <mat-icon>{{ navigationButton.icon }}</mat-icon>
-                </button>
-            </ng-container>
-        </div>
-    </div>
-</section>
+<app-navigation-bar [actualMenuIndex]=2></app-navigation-bar>

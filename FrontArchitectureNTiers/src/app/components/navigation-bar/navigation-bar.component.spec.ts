@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ManageMobilityComponent } from './manage-mobility.component';
+import { NavigationBarComponent } from './navigation-bar.component';
 
-describe('ManageMobilityComponent', () => {
-  let component: ManageMobilityComponent;
-  let fixture: ComponentFixture<ManageMobilityComponent>;
+describe('NavigationBarComponent', () => {
+  let component: NavigationBarComponent;
+  let fixture: ComponentFixture<NavigationBarComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ManageMobilityComponent ]
+      declarations: [ NavigationBarComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ManageMobilityComponent);
+    fixture = TestBed.createComponent(NavigationBarComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
