@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './components/home/home.component';
+import { HomeComponent } from './components/pages/home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { HttpClientModule } from '@angular/common/http';
@@ -16,12 +16,15 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatListModule } from '@angular/material/list'; 
 import { MatDividerModule } from '@angular/material/divider'; 
 
-import { HomeCardComponent } from './components/home/home-card/home-card.component'; 
-import { MapComponent } from './components/map/map.component';
-import { SearchMobilityComponent } from './components/search-mobility/search-mobility.component';
-import { AddMobilityComponent } from './components/add-mobility/add-mobility.component';
+import { HomeCardComponent } from './components/pages/home/home-card/home-card.component'; 
+import { MapComponent } from './components/pages/map/map.component';
+import { SearchMobilityComponent } from './components/pages/search-mobility/search-mobility.component';
+import { AddMobilityComponent } from './components/pages/add-mobility/add-mobility.component';
 import { NavigationBarComponent } from './components/navigation-bar/navigation-bar.component';
 import { MobilityListComponent } from './components/lists/mobility-list/mobility-list.component'; 
+
+import { MapModule, MapAPILoader, MarkerTypeId, IMapOptions, IBox, IMarkerIconInfo, WindowRef, DocumentRef, MapServiceFactory, BingMapAPILoaderConfig, BingMapAPILoader, GoogleMapAPILoader, GoogleMapAPILoaderConfig } from 'angular-maps';
+import { BingMapComponent } from './components/bing-map/bing-map.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +35,8 @@ import { MobilityListComponent } from './components/lists/mobility-list/mobility
     SearchMobilityComponent,
     AddMobilityComponent,
     NavigationBarComponent,
-    MobilityListComponent
+    MobilityListComponent,
+    BingMapComponent
   ],
   imports: [
     BrowserModule,

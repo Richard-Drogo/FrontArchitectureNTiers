@@ -21,6 +21,11 @@
     "@angular/platform-browser": "~11.2.0",
     "@angular/platform-browser-dynamic": "~11.2.0",
     "@angular/router": "~11.2.0",
+    "@types/bingmaps": "0.0.1",
+    "angular-maps": "^6.0.3",
+    "async": "^2.5.0",
+    "bingmaps": "^2.0.3",
+    "json-loader": "^0.5.7",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.11.3"

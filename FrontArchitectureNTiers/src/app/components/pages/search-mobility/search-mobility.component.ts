@@ -3,6 +3,7 @@ import { MobilityService } from 'src/app/services/mobility.service';
 
 /**
  * @title Page allowing the user to search a mobility with filters.
+ * TODO: Add a message when there isn't any mobility.
  */
 @Component({
   selector: 'app-search-mobility',

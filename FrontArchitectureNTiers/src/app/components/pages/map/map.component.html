@@ -1,0 +1,22 @@
+<mat-toolbar>
+    <span>TSE Mobilities: Live map</span>
+</mat-toolbar>
+
+<app-navigation-bar [actualMenuIndex]=1></app-navigation-bar>
+<mat-divider></mat-divider>
+
+<div class="inlineBlockDiv">
+    <app-bing-map *ngIf='mapReady' (selectedMobility)="selectedMobility($event)"></app-bing-map>
+</div>
+
+<div class="inlineBlockDiv">
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>{{ mobilityStudentName }}</mat-card-title>
+            <mat-card-subtitle>{{ mobilityPlaceName }}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+            <p>{{mobilityDates}}</p>
+        </mat-card-content>
+    </mat-card>
+</div>
