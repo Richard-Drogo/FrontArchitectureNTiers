@@ -6,7 +6,8 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './components/pages/home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http'
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { MatToolbarModule } from '@angular/material/toolbar'; 
 import { MatTabsModule } from '@angular/material/tabs';
@@ -15,6 +16,13 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatListModule } from '@angular/material/list'; 
 import { MatDividerModule } from '@angular/material/divider'; 
+import { MatStepperModule } from '@angular/material/stepper'; 
+import { MatFormFieldModule } from '@angular/material/form-field'; 
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select'; 
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 import { HomeCardComponent } from './components/pages/home/home-card/home-card.component'; 
 import { MapComponent } from './components/pages/map/map.component';
@@ -36,7 +44,7 @@ import { BingMapComponent } from './components/bing-map/bing-map.component';
     AddMobilityComponent,
     NavigationBarComponent,
     MobilityListComponent,
-    BingMapComponent
+    BingMapComponent,
   ],
   imports: [
     BrowserModule,
@@ -49,7 +57,15 @@ import { BingMapComponent } from './components/bing-map/bing-map.component';
     MatCardModule,
     MatButtonModule,
     MatListModule,
-    MatDividerModule
+    MatDividerModule,
+    MatStepperModule,
+    MatFormFieldModule,
+    MatInputModule,
+    ReactiveFormsModule,
+    MatSelectModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

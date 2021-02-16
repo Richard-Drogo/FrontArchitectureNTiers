@@ -5,5 +5,6 @@ export interface Mobility {
     country: string;
     beginDate: string;
     endDate: string;
+    submissionDate: string;
     student: User;
 }
