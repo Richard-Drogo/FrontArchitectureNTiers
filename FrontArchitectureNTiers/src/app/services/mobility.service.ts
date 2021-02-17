@@ -22,11 +22,56 @@ export class MobilityService {
     public httpApi: HttpClient,
   ) { }
 
-    /**
+  /**
    * Retrieve the mobilities and refresh the values in the list through a subscription service.
    */
   getAllMobilitiesSub() {
     return this.httpApi.get(this.DOMAIN + "mobilities").subscribe(
+      (response: any) => {
+        this.allMobilitiesList.next(response);
+      },
+      (error) => {
+        console.log(this.ERROR_MESSAGE);
+      }
+    );
+  }
+
+
+  /**
+   * Retrieve the mobilities accoding to the specified filters and refresh the values in the list through a subscription service.
+   * @param firstname The firstname of the student
+   * @param lastname The lastname of the student
+   * @param type The class of the student
+   * @param country The country of the mobility
+   * @param date The date the mobility must contain
+   */
+  getFilteredMobilitiesSub(firstname: string, lastname: string, type: string, country: string, date: string) {
+    // BEGIN: CONSTANTS
+    const FIRSTNAME_REQUEST_PARAM = "firstname";
+    const LASTNAME_REQUEST_PARAM = "lastname";
+    const TYPE_REQUEST_PARAM = "typeUser";
+    const COUNTRY_REQUEST_PARAM = "country";
+    const DATE_REQUEST_PARAM = "date";
+    const PARAMETERS_LABELS = [FIRSTNAME_REQUEST_PARAM, LASTNAME_REQUEST_PARAM, TYPE_REQUEST_PARAM, COUNTRY_REQUEST_PARAM, DATE_REQUEST_PARAM];
+    // END CONSTANTS
+
+    let url = this.DOMAIN + "mobilities?";
+    let parameters = [firstname, lastname, type, country, date];
+    let isFirst = true;
+    let i = 0;
+    parameters.forEach(parameter => {
+      if(parameter.length > 0){
+        if(isFirst){
+          url = url + PARAMETERS_LABELS[i] + "=" + parameter;
+          isFirst = false;
+        } else {
+          url = url + "&" + PARAMETERS_LABELS[i] + "=" + parameter;
+        }
+      }
+      i = i + 1;
+    });
+    
+    return this.httpApi.get(url).subscribe(
       (response: any) => {
         this.allMobilitiesList.next(response);
       },

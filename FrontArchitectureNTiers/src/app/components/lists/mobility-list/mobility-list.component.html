@@ -1,7 +1,8 @@
 <mat-list role="list" *ngFor="let mobility of mobilities">
     <mat-list-item role="listitem">
         <mat-icon mat-list-icon>airplane_ticket</mat-icon>
-        <div mat-line>{{ mobility.student.firstname }} {{ mobility.student.lastname }}</div>
+        <div mat-line>{{ mobility.student.firstname }} {{ mobility.student.lastname }} - {{ mobility.student.typeUser}}</div>
+        <div mat-line>{{ mobility.student.email }}</div>
         <div mat-line>{{ mobility.country }}, {{ mobility.city }}</div>
         <div mat-line>From {{ mobility.beginDate }} to {{ mobility.endDate }}</div>
         <div mat-line>Submission: {{ mobility.submissionDate }}</div>

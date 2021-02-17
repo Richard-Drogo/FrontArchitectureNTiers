@@ -72,7 +72,7 @@ export class AddMobilityComponent implements OnInit {
     let studentId = this.studentControl.value.id;
     let country = this.placeFormGroup.controls.countryControl.value;
     let city = this.placeFormGroup.controls.cityControl.value;
-    let beginDate = this.datesRangeGroup.controls.beginDateControl.value;// | date:'yyyy-MM-dd'
+    let beginDate = this.datesRangeGroup.controls.beginDateControl.value;
     beginDate = beginDate.getFullYear() + "-" + ('0' + (beginDate.getMonth()+1)).slice(-2) + "-" + ('0' + beginDate.getDate()).slice(-2);
     let endDate = this.datesRangeGroup.controls.endDateControl.value;
     endDate = endDate.getFullYear() + "-" + ('0' + (endDate.getMonth()+1)).slice(-2) + "-" +  ('0' + endDate.getDate()).slice(-2);

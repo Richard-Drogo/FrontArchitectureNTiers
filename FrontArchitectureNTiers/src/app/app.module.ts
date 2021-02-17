@@ -23,6 +23,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatExpansionModule } from '@angular/material/expansion'; 
 
 import { HomeCardComponent } from './components/pages/home/home-card/home-card.component'; 
 import { MapComponent } from './components/pages/map/map.component';
@@ -65,7 +66,8 @@ import { BingMapComponent } from './components/bing-map/bing-map.component';
     MatSelectModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatExpansionModule
   ],
   providers: [],
   bootstrap: [AppComponent]
