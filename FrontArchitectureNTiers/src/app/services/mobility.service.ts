@@ -134,4 +134,39 @@ export class MobilityService {
     });
 
   }
+
+  /**
+   * Change values of a mobility in the database
+   * @param mobilityId The id of the mobility to be changed
+   * @param country The name of the destination country
+   * @param city The name of the destination city
+   * @param beginDate The beginning date of the mobility
+   * @param endDate The ending date of the mobility
+   * @returns The result of the operation
+   */
+  patchMobility(mobilityId: number, country: string, city: string, beginDate: string, endDate: string): Promise<boolean>{
+    let headers = new HttpHeaders();
+    headers.append("Accept", 'application/json');
+    headers.append('Content-Type', 'application/json' );
+    const requestOptions = { headers: headers };
+
+    let mobility = {
+      "country": country,
+      "city": city,
+      "beginDate": beginDate,
+      "endDate": endDate,
+    }
+
+    return new Promise(resolve => {
+        this.httpApi.patch(this.DOMAIN + "mobilities/" + mobilityId, mobility, requestOptions)
+        .subscribe(data => {
+          resolve(true);
+        }, error => {
+          resolve(false);
+          console.log(this.ERROR_MESSAGE);
+          //console.log(error); True error to see when we are in debugging mode.
+      });
+    });
+
+  }
 }

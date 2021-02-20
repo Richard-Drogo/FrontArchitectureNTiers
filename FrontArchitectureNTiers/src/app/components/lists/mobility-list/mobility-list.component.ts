@@ -4,6 +4,7 @@ import { MobilityService } from '../../../services/mobility.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatDialog } from '@angular/material/dialog';
 import { DeleteDialogComponent } from '../../dialogs/delete-dialog/delete-dialog.component';
+import { Router } from '@angular/router';
 
 /**
  * Component displaying all the mobilities in the database and providing actions button to manage them.
@@ -25,7 +26,8 @@ export class MobilityListComponent implements OnInit {
   constructor(
     public mobilityService: MobilityService,
     readonly snackBar: MatSnackBar,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    public router: Router
   ) { }
 
   ngOnInit(): void {
@@ -39,8 +41,12 @@ export class MobilityListComponent implements OnInit {
    * Function called when the user presses the Edit button on a mobility item.
    * @param mobility Mobility to be editted
    */
-  goToEditMobilityPage(mobility: Mobility){
-    alert("TODO" + "\n" + mobility);
+  goToEditMobilityPage(mobilityToBeEdited: Mobility){
+    this.router.navigate(['/edit-mobility/'], {
+      state: {
+        mobility: JSON.stringify(mobilityToBeEdited)
+      }
+    });
   }
 
   /**

@@ -39,7 +39,7 @@ export class BingMapComponent implements OnInit {
       this.mobilities.forEach(mobility => {
         let response = this.bingMapService.getPlaceCoordinates(mobility.country, mobility.city);
         response.subscribe( (place: any) => {
-          if(place.resourceSets.length > 0){
+          if(place.resourceSets[0].resources[0] != undefined){
             let coordinates = place.resourceSets[0].resources[0].point.coordinates;
             let pushpin = new Microsoft.Maps.Pushpin(new Microsoft.Maps.Location(coordinates[0], coordinates[1]));
             this.map.entities.push(pushpin);

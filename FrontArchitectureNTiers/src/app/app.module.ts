@@ -36,6 +36,7 @@ import { MobilityListComponent } from './components/lists/mobility-list/mobility
 import { MapModule, MapAPILoader, MarkerTypeId, IMapOptions, IBox, IMarkerIconInfo, WindowRef, DocumentRef, MapServiceFactory, BingMapAPILoaderConfig, BingMapAPILoader, GoogleMapAPILoader, GoogleMapAPILoaderConfig } from 'angular-maps';
 import { BingMapComponent } from './components/bing-map/bing-map.component';
 import { DeleteDialogComponent } from './components/dialogs/delete-dialog/delete-dialog.component';
+import { EditMobilityComponent } from './components/pages/edit-mobility/edit-mobility.component';
 
 @NgModule({
   declarations: [
@@ -49,6 +50,7 @@ import { DeleteDialogComponent } from './components/dialogs/delete-dialog/delete
     MobilityListComponent,
     BingMapComponent,
     DeleteDialogComponent,
+    EditMobilityComponent,
   ],
   imports: [
     BrowserModule,

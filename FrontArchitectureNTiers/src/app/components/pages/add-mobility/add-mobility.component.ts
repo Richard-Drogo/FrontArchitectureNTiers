@@ -91,8 +91,9 @@ export class AddMobilityComponent implements OnInit {
   }
 
   /**
-   * Display a toast with the given parameter as a message.
-   */ 
+   * Display a snackbar with the specified message.
+   * @param notificationMessage Message of the snackbar.
+   */
   notification(notificationMessage: string) {
     return this.snackBar.open(notificationMessage, '',{
       duration: 1000,
