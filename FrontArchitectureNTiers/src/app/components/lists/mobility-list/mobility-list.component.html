@@ -6,6 +6,12 @@
         <div mat-line>{{ mobility.country }}, {{ mobility.city }}</div>
         <div mat-line>From {{ mobility.beginDate }} to {{ mobility.endDate }}</div>
         <div mat-line>Submission: {{ mobility.submissionDate }}</div>
+        <button mat-mini-fab class="buttonActionMobility" color="primary" (click)="goToEditMobilityPage(mobility);">
+            <mat-icon>mode</mat-icon>
+        </button>
+        <button mat-mini-fab class="buttonActionMobility" color="warn" (click)="openDeleteDialog(mobility.id);">
+            <mat-icon>delete</mat-icon>
+        </button>
         <mat-divider></mat-divider>
     </mat-list-item>
 </mat-list>

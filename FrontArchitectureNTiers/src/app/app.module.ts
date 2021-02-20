@@ -24,6 +24,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatExpansionModule } from '@angular/material/expansion'; 
+import { MatDialogModule } from '@angular/material/dialog'; 
 
 import { HomeCardComponent } from './components/pages/home/home-card/home-card.component'; 
 import { MapComponent } from './components/pages/map/map.component';
@@ -34,6 +35,7 @@ import { MobilityListComponent } from './components/lists/mobility-list/mobility
 
 import { MapModule, MapAPILoader, MarkerTypeId, IMapOptions, IBox, IMarkerIconInfo, WindowRef, DocumentRef, MapServiceFactory, BingMapAPILoaderConfig, BingMapAPILoader, GoogleMapAPILoader, GoogleMapAPILoaderConfig } from 'angular-maps';
 import { BingMapComponent } from './components/bing-map/bing-map.component';
+import { DeleteDialogComponent } from './components/dialogs/delete-dialog/delete-dialog.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +48,7 @@ import { BingMapComponent } from './components/bing-map/bing-map.component';
     NavigationBarComponent,
     MobilityListComponent,
     BingMapComponent,
+    DeleteDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -67,7 +70,8 @@ import { BingMapComponent } from './components/bing-map/bing-map.component';
     MatDatepickerModule,
     MatNativeDateModule,
     MatSnackBarModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

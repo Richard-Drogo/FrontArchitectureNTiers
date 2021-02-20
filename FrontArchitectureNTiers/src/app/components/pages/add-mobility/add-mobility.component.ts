@@ -90,14 +90,14 @@ export class AddMobilityComponent implements OnInit {
     });
   }
 
-    /**
-     * Display a toast with the given parameter as a message.
-     */ 
-    notification(notificationMessage: string) {
-      return this.snackBar.open(notificationMessage, '',{
-        duration: 1000,
-        panelClass: 'snack-bar'
-     });
-    }
+  /**
+   * Display a toast with the given parameter as a message.
+   */ 
+  notification(notificationMessage: string) {
+    return this.snackBar.open(notificationMessage, '',{
+      duration: 1000,
+      panelClass: 'snack-bar'
+    });
+  }
   
 }

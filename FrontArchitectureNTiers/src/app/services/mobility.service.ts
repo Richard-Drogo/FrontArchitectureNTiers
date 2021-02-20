@@ -117,4 +117,21 @@ export class MobilityService {
     });
 
   }
+
+  /**
+   * Delete the mobility from the databas thanks to the API.
+   * @param mobilityId Id of the mobility to be deleted.
+   */
+  deleteMobility(mobilityId: number): Promise<Boolean>{
+    return new Promise(resolve => {
+        this.httpApi.delete(this.DOMAIN + "mobilities/" + mobilityId).subscribe((response: any) => {
+          resolve(response);
+        }, error => {
+          resolve(false);
+          console.log(this.ERROR_MESSAGE);
+          // console.log(error); // Only to be displayed during developpement to prevent malicious users to retrieve more information about the problem.
+      });
+    });
+
+  }
 }

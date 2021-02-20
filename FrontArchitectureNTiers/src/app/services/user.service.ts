@@ -22,7 +22,7 @@ export class UserService {
     public httpApi: HttpClient,
   ) { }
 
-    /**
+  /**
    * Retrieve the users and refresh the values in the list through a subscription service.
    */
   getAllUsersSub() {
