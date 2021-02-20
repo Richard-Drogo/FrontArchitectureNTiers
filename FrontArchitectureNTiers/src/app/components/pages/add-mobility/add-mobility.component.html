@@ -12,14 +12,14 @@
             <ng-template matStepLabel>Student</ng-template>
             <mat-form-field appearance="fill">
                 <mat-label>Firstname Lastname</mat-label>
-                <mat-select [formControl]="studentControl" required>
+                <mat-select [formControl]="studentFormGroup.controls.studentControl" required>
                     <mat-option >--</mat-option>
                     <mat-option *ngFor="let student of students" [value]="student">
                     {{ student.firstname }} {{ student.lastname }}
                     </mat-option>
                 </mat-select>
-                <mat-error *ngIf="studentControl.hasError('required')">Please select a student to continue</mat-error>
-                <mat-hint>{{ studentControl.value?.sound }}</mat-hint>
+                <mat-error *ngIf="studentFormGroup.controls.studentControl.hasError('required')">Please select a student to continue</mat-error>
+                <mat-hint>{{ studentFormGroup.controls.studentControl.value?.sound }}</mat-hint>
             </mat-form-field>
             <div>
                 <button mat-button matStepperNext>Next</button>
@@ -33,37 +33,47 @@
           <ng-template matStepLabel>Place</ng-template>
           <mat-form-field>
             <mat-label>Country</mat-label>
-            <input matInput formControlName="countryControl" placeholder="France" required/>
+            <input matInput [formControl]="placeFormGroup.controls.countryControl" placeholder="France" required/>
+            <mat-error *ngIf="placeFormGroup.controls.countryControl.hasError('required')">Please write an existing country to continue</mat-error>
+            <mat-hint>{{ placeFormGroup.controls.countryControl.value?.sound }}</mat-hint>
           </mat-form-field>
           <br />
           <mat-form-field>
             <mat-label>City</mat-label>
-            <input matInput formControlName="cityControl" placeholder="Paris" required/>
+            <input matInput [formControl]="placeFormGroup.controls.cityControl" placeholder="Paris" required/>
+            <mat-error *ngIf="placeFormGroup.controls.cityControl.hasError('required')">Please write an existing city of the country to continue</mat-error>
+            <mat-hint>{{ placeFormGroup.controls.cityControl.value?.sound }}</mat-hint>
           </mat-form-field>
           <div>
             <button mat-button matStepperPrevious>Back</button>
-            <button mat-button matStepperNext>Next</button>
+            <button mat-button (click)="nextStepperPlace(stepper)">Next</button>
           </div>
         </form>
     </mat-step>
 
 
     <!-- Step 3: Dates -->
-    <mat-step  [editable]="isEditable">
-        <form>
+    <mat-step [stepControl]="datesRangeGroup" [editable]="isEditable">
+        <form [formGroup]="datesRangeGroup"> 
             <ng-template matStepLabel>Dates</ng-template>
             <mat-form-field appearance="fill">
                 <mat-label>Enter a date range</mat-label>
-                <mat-date-range-input [formGroup]="datesRangeGroup" [rangePicker]="picker">
-                    <input matStartDate formControlName="beginDateControl" placeholder="Start date">
-                    <input matEndDate formControlName="endDateControl" placeholder="End date">
+                <mat-date-range-input [rangePicker]="picker">
+                    <input matStartDate [formControl]="datesRangeGroup.controls.beginDateControl" placeholder="Start date">
+                    <input matEndDate [formControl]="datesRangeGroup.controls.endDateControl" placeholder="End date">
                 </mat-date-range-input>
                 <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                 <mat-date-range-picker #picker></mat-date-range-picker>
             
                 <mat-error *ngIf="datesRangeGroup.controls.beginDateControl.hasError('matStartDateInvalid')">Invalid start date</mat-error>
                 <mat-error *ngIf="datesRangeGroup.controls.endDateControl.hasError('matEndDateInvalid')">Invalid end date</mat-error>
+                <mat-error *ngIf="datesRangeGroup.controls.beginDateControl.hasError('required')">The begining date of the mobility is mandatory!</mat-error>
+                <mat-error *ngIf="datesRangeGroup.controls.endDateControl.hasError('required')">The ending date of the mobility is mandatory!</mat-error>
             </mat-form-field>
+            <div>
+                <button mat-button matStepperPrevious>Back</button>
+                <button mat-button matStepperNext>Next</button>
+            </div>
         </form>
     </mat-step>
 
@@ -73,7 +83,7 @@
     <mat-step [editable]="isEditable">
         <ng-template matStepLabel>Review</ng-template>
         <p>Review the following information before creating the mobility.</p>
-        <p>{{ studentControl.value.typeUser }} {{ studentControl.value.firstname }} {{ studentControl.value.lastname }}</p>
+        <p>{{ studentFormGroup.controls.studentControl.value.typeUser }} {{ studentFormGroup.controls.studentControl.value.firstname }} {{ studentFormGroup.controls.studentControl.value.lastname }}</p>
         <p>{{ placeFormGroup.controls.countryControl.value }}, {{ placeFormGroup.controls.cityControl.value }}</p>
         <p>From {{ datesRangeGroup.controls.beginDateControl.value | date:'yyyy-MM-dd' }} to {{ datesRangeGroup.controls.endDateControl.value | date:'yyyy-MM-dd' }}</p>
         <div>

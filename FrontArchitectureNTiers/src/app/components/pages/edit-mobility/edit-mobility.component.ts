@@ -89,7 +89,6 @@ export class EditMobilityComponent implements OnInit {
   editMobility() {
     if(this.editMobilityFormGroup.valid){
       if(this.isMobilityChanged()){
-        this.notification("OK", 2000);
         let response = this.BingMapService.getPlaceCoordinates(this.editMobilityFormGroup.controls.countryControl.value, this.editMobilityFormGroup.controls.cityControl.value);
         response.subscribe( (place: any) => {
           if(place.resourceSets[0].resources[0] != undefined){
@@ -131,7 +130,7 @@ export class EditMobilityComponent implements OnInit {
       this.router.navigateByUrl(this.SEARCH_MOBILITY_ROUTE);
     });
   }
-  
+
   /**
    * Function returning true if inputs are different from the initial ones.
    */
